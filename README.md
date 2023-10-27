@@ -14,7 +14,7 @@ This repository contains a PyTorch implementation of "Skip Connections and Train
 The `data` folder contains three benchmark datasets(Cora, Citeseer, Pubmed), and the `newdata` folder contains four datasets(Chameleon, Cornell, Texas, Wisconsin) from [Geom-GCN](https://github.com/graphdml-uiuc-jlu/geom-gcn). We use the full-supervised setting as [GCN](https://github.com/tkipf/gcn).
 
 ## Results
-FULL SUPERVISED EXPERIMENTAL RESULTS FOR MEAN CLASSIFICATION ACCURACY AND TRAINING COST FOR NODE CLASSIFICATION
+Full supervised experimental results for mean classification accuracy and training cost for node classification
 Improved results are shown in bold. (A full comparison is shown in the paper.)
 
 | Dataset | Training Cost(sec) |  Accuracy | Dataset | Training Cost(sec) |  Accuracy |
