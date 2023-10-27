@@ -1,3 +1,6 @@
+#model.py
+
+
 import torch.nn as nn
 import torch
 import math
@@ -39,16 +42,17 @@ class GraphConvolution(nn.Module):
         return output
 
 class GCNII(nn.Module):
-    def __init__(self, nfeat, nlayers,nhidden, nclass, dropout, lamda, alpha, variant):
+    def __init__(self, nfeat, nlayers, nhidden, nclass, dropout, lamda, alpha, variant):
         super(GCNII, self).__init__()
         self.convs = nn.ModuleList()
         for _ in range(nlayers):
-            self.convs.append(GraphConvolution(nhidden, nhidden,variant=variant))
+            self.convs.append(GraphConvolution(nhidden, nhidden, variant=variant))
         self.fcs = nn.ModuleList()
         self.fcs.append(nn.Linear(nfeat, nhidden))
         self.fcs.append(nn.Linear(nhidden, nclass))
         self.params1 = list(self.convs.parameters())
         self.params2 = list(self.fcs.parameters())
+        self.beta = nn.Parameter(torch.tensor(1.0), requires_grad=True)
         self.act_fn = nn.ReLU()
         self.dropout = dropout
         self.alpha = alpha
@@ -59,9 +63,13 @@ class GCNII(nn.Module):
         x = F.dropout(x, self.dropout, training=self.training)
         layer_inner = self.act_fn(self.fcs[0](x))
         _layers.append(layer_inner)
-        for i,con in enumerate(self.convs):
+        for i, con in enumerate(self.convs):
+            layer_inner_prev = layer_inner  # store the input for this layer
             layer_inner = F.dropout(layer_inner, self.dropout, training=self.training)
-            layer_inner = self.act_fn(con(layer_inner,adj,_layers[0],self.lamda,self.alpha,i+1))
+            layer_inner = self.act_fn(con(layer_inner, adj, _layers[0], self.lamda, self.alpha, i+1))
+
+                        # Skip connection: add the input of this layer to its output
+            layer_inner = self.beta * layer_inner + (1 - self.beta) * layer_inner_prev  
         layer_inner = F.dropout(layer_inner, self.dropout, training=self.training)
         layer_inner = self.fcs[-1](layer_inner)
         return F.log_softmax(layer_inner, dim=1)
