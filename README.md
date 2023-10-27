@@ -15,9 +15,9 @@ The `data` folder contains three benchmark datasets(Cora, Citeseer, Pubmed), and
 
 ## Results
 FULL SUPERVISED EXPERIMENTAL RESULTS FOR MEAN CLASSIFICATION ACCURACY AND TRAINING COST FOR NODE CLASSIFICATION
-(improved results are shown in bold)
+Improved results are shown in bold. (A full comparison is shown in the paper.)
 
-| Dataset | Training Cost(s)|  Accuracy | Dataset | Training Cost |  Accuracy |
+| Dataset | Training Cost(sec) |  Accuracy | Dataset | Training Cost(sec) |  Accuracy |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | Cora       | **480.00** | 88.03  | Cham | **79.6865**  | **67.43** |
 | Cite       | 269.95 | **76.99**  | Corn | **185.32** | **74.59** |
@@ -29,8 +29,8 @@ FULL SUPERVISED EXPERIMENTAL RESULTS FOR MEAN CLASSIFICATION ACCURACY AND TRAINI
 ## Usage
 
 ```
-- To replicate the full-supervised results, run the following script
-```sh
+- To replicate the full-supervised results, run the following scripts:
+```
 python -u full-supervised.py --data cora --layer 64 --alpha 0.2 --weight_decay 1e-4
 python -u full-supervised.py --data citeseer --layer 64 --weight_decay 5e-6
 python -u full-supervised.py --data pubmed --layer 64 --alpha 0.1 --weight_decay 5e-6
