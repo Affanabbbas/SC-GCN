@@ -30,7 +30,7 @@ Improved results are shown in bold. (A full comparison is shown in the paper.)
 
 ```
 - To replicate the full-supervised results, run the following scripts:
-```
+```sh
 python -u full-supervised.py --data cora --layer 64 --alpha 0.2 --weight_decay 1e-4
 python -u full-supervised.py --data citeseer --layer 64 --weight_decay 5e-6
 python -u full-supervised.py --data pubmed --layer 64 --alpha 0.1 --weight_decay 5e-6
