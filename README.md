@@ -1,10 +1,10 @@
-# Simple and Deep Graph Convolutional Networks
+# Skip Connections and Training Cost Reduction: A Game Changer in  Graph Neural Networks 
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/simple-and-deep-graph-convolutional-networks/node-classification-on-cora-full-supervised)](https://paperswithcode.com/sota/node-classification-on-cora-full-supervised?p=simple-and-deep-graph-convolutional-networks)
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/simple-and-deep-graph-convolutional-networks/node-classification-on-pubmed-full-supervised)](https://paperswithcode.com/sota/node-classification-on-pubmed-full-supervised?p=simple-and-deep-graph-convolutional-networks)
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/simple-and-deep-graph-convolutional-networks/node-classification-on-cora-with-public-split)](https://paperswithcode.com/sota/node-classification-on-cora-with-public-split?p=simple-and-deep-graph-convolutional-networks)
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/simple-and-deep-graph-convolutional-networks/node-classification-on-ppi)](https://paperswithcode.com/sota/node-classification-on-ppi?p=simple-and-deep-graph-convolutional-networks)
 
-This repository contains a PyTorch implementation of "Simple and Deep Graph Convolutional Networks".(https://arxiv.org/abs/2007.02133)
+This repository contains a PyTorch implementation of "Simple and Deep Graph Convolutional Networks".
 
 ## Dependencies
 - CUDA 10.1
@@ -50,14 +50,4 @@ Requirements: `torch-geometric >= 1.5.0` and  `ogb >= 1.2.0`.
 ```
 python cora.py
 python arxiv.py
-```
-
-## Citation
-```
-@article{chenWHDL2020gcnii,
-  title = {Simple and Deep Graph Convolutional Networks},
-  author = {Ming Chen, Zhewei Wei and Zengfeng Huang, Bolin Ding and Yaliang Li},
-  year = {2020},
-  booktitle = {Proceedings of the 37th International Conference on Machine Learning},
-}
 ```
