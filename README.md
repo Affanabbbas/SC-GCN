@@ -15,6 +15,8 @@ The `data` folder contains three benchmark datasets(Cora, Citeseer, Pubmed), and
 
 ## Results
 FULL SUPERVISED EXPERIMENTAL RESULTS FOR MEAN CLASSIFICATION ACCURACY AND TRAINING COST FOR NODE CLASSIFICATION
+(improved results are shown in bold)
+
 | Dataset | Training Cost(s)|  Accuracy | Dataset | Training Cost |  Accuracy |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | Cora       | **480.00** | 88.03  | Cham | **79.6865**  | **67.43** |
@@ -26,23 +28,14 @@ FULL SUPERVISED EXPERIMENTAL RESULTS FOR MEAN CLASSIFICATION ACCURACY AND TRAINI
 
 ## Usage
 
-- To replicate the semi-supervised results, run the following script
-```sh
-sh semi.sh
 ```
 - To replicate the full-supervised results, run the following script
 ```sh
-sh full.sh
-```
-- To replicate the inductive results of PPI, run the following script
-```sh
-sh ppi.sh
-```
-## Reference implementation
-The `PyG` folder includes a simple *PyTorch Geometric* implementation of GCNII.
-Requirements: `torch-geometric >= 1.5.0` and  `ogb >= 1.2.0`.
-- Running examples
-```
-python cora.py
-python arxiv.py
+python -u full-supervised.py --data cora --layer 64 --alpha 0.2 --weight_decay 1e-4
+python -u full-supervised.py --data citeseer --layer 64 --weight_decay 5e-6
+python -u full-supervised.py --data pubmed --layer 64 --alpha 0.1 --weight_decay 5e-6
+python -u full-supervised.py --data chameleon --layer 8 --lamda 1.5 --alpha 0.2 --weight_decay 5e-4
+python -u full-supervised.py --data cornell --layer 16 --lamda 1 --weight_decay 1e-3
+python -u full-supervised.py --data texas --layer 32 --lamda 1.5 --weight_decay 1e-4
+python -u full-supervised.py --data wisconsin --layer 16 --lamda 1 --weight_decay 5e-4
 ```
